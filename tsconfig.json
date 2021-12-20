@@ -3,7 +3,8 @@
 		"outDir": "dist",
 		"lib": ["es2016", "DOM"],
 		"sourceMap": true,
-		"declaration": true
+		"declaration": true,
+		"skipLibCheck": true
 	},
 	"include": ["src/**/*.ts"]
 }
