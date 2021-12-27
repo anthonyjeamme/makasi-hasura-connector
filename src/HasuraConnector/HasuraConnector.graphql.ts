@@ -22,6 +22,9 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
 
 export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
   pages(
+    order_by:{
+      created_at: desc
+    },
     where:{
       type:{
         _eq: "${filter}"
@@ -36,7 +39,11 @@ export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
 }`
 
 export const hasuraGetPagesQuery = `query {
-    pages{
+    pages(
+      order_by:{
+        created_at: desc
+      }
+    ){
       id
       metadata
       sections
