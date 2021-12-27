@@ -33,7 +33,7 @@ export const hasuraConnector = (
 				},
 				{ bearerToken }
 			)
-		)?.data?.insert_pages
+		)?.data?.insert_pages?.returning
 	},
 
 	//
