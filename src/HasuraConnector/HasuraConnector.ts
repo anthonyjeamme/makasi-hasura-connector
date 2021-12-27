@@ -4,6 +4,7 @@
 import { TConnector, TPageData } from 'makasi-core'
 
 import {
+	getFilteredHasuraGetPagesQuery,
 	hasuraAddPageQuery,
 	hasuraGetPageQuery,
 	hasuraGetPagesQuery,
@@ -58,11 +59,15 @@ export const hasuraConnector = (
 	},
 
 	//
-	getPages: async (): Promise<TPageData[]> => {
+	getPages: async (type = null): Promise<TPageData[]> => {
 		return (
 			await doGRAPHQLQuery(
 				getHasuraURL(domain),
-				{ query: hasuraGetPagesQuery },
+				{
+					query: type
+						? getFilteredHasuraGetPagesQuery(type)
+						: hasuraGetPagesQuery
+				},
 				{ bearerToken }
 			)
 		)?.data?.pages

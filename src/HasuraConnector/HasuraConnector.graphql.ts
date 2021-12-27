@@ -20,6 +20,21 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
     }
   }`
 
+export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
+  pages(
+    where:{
+      type:{
+        _eq: "${filter}"
+      }
+    }
+  ){
+    id
+    metadata
+    sections
+    slug
+  }
+}`
+
 export const hasuraGetPagesQuery = `query {
     pages{
       id
