@@ -2,6 +2,7 @@ export const hasuraAddPageQuery = `mutation ($data: pages_insert_input!) {
     insert_pages(objects: [$data]) {
       returning {
         id
+        is_published
         metadata
         sections
         slug
@@ -14,6 +15,7 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
         where: {id: {_eq: $id}}
     ){
       id
+      is_published
       metadata
       sections
       slug
@@ -32,6 +34,7 @@ export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
     }
   ){
     id
+    is_published
     metadata
     sections
     slug
@@ -45,6 +48,7 @@ export const hasuraGetPagesQuery = `query {
       }
     ){
       id
+      is_published
       metadata
       sections
       slug
