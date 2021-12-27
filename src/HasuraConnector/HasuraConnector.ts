@@ -19,7 +19,7 @@ export const hasuraConnector = (
 	bearerToken: string
 ): TConnector => ({
 	//
-	addPage: async (data) => {
+	addPage: async (data): Promise<TPageData> => {
 		const variables = {
 			data
 		}
@@ -33,7 +33,7 @@ export const hasuraConnector = (
 				},
 				{ bearerToken }
 			)
-		)?.data
+		)?.data?.insert_pages
 	},
 
 	//
