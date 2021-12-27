@@ -107,6 +107,6 @@ export const hasuraConnector = (
 				},
 				{ bearerToken }
 			)
-		)?.data
+		)?.data?.update_pages?.returning?.[0]
 	}
 })
