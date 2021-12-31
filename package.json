@@ -11,7 +11,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"makasi-core": "0.0.20",
+		"makasi-core": "0.0.34",
 		"typescript": "^4.5.4"
 	}
 }
