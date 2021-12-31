@@ -3,6 +3,7 @@ export const hasuraAddPageQuery = `mutation ($data: pages_insert_input!) {
       returning {
         id
         is_published
+        is_locked
         metadata
         sections
         slug
@@ -17,6 +18,7 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
       id
       type
       is_published
+      is_locked
       metadata
       sections
       slug
@@ -37,6 +39,7 @@ export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
     id
     type
     is_published
+    is_locked
     metadata
     sections
     slug
@@ -52,6 +55,7 @@ export const hasuraGetPagesQuery = `query {
       id
       type
       is_published
+      is_locked
       metadata
       sections
       slug
