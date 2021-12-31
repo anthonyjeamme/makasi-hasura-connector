@@ -15,6 +15,7 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
         where: {id: {_eq: $id}}
     ){
       id
+      type
       is_published
       metadata
       sections
@@ -34,6 +35,7 @@ export const getFilteredHasuraGetPagesQuery = (filter: string) => `query {
     }
   ){
     id
+    type
     is_published
     metadata
     sections
@@ -48,6 +50,7 @@ export const hasuraGetPagesQuery = `query {
       }
     ){
       id
+      type
       is_published
       metadata
       sections
