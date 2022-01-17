@@ -144,3 +144,23 @@ export const hasuraAddResourceToPageQuery = `mutation ($data: page_resource_inse
       }
     }
   }`
+
+export const hasuraRemovePageResource = `mutation(
+    $page_id: uuid
+    $resource_id: uuid
+  ){
+    delete_page_resource(where:{
+      _and:{
+        page_id:{
+          _eq:$page_id
+        },
+        resource_id:{
+          _eq: $resource_id
+        }
+      }
+    }){
+      returning{
+        id
+      }
+    }
+  }`

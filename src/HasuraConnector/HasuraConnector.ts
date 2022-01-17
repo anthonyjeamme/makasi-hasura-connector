@@ -12,6 +12,7 @@ import {
 	hasuraGetPagesQuery,
 	hasuraGetResourceQuery,
 	hasuraRemovePageQuery,
+	hasuraRemovePageResource,
 	hasuraRemoveResourceQuery,
 	hasuraUpdatePageQuery,
 	hasuraUpdateResourceQuery
@@ -209,5 +210,24 @@ export const hasuraConnector = (
 				{ bearerToken }
 			)
 		)?.data?.insert_page_resource?.returning?.[0]
+	},
+
+	//
+	removePageResource: async (resourceId, pageId) => {
+		const variables = {
+			resourceId,
+			pageId
+		}
+
+		return (
+			await doGRAPHQLQuery(
+				getHasuraURL(domain),
+				{
+					query: hasuraRemovePageResource,
+					variables
+				},
+				{ bearerToken }
+			)
+		)?.data?.delete_page_resource?.returning?.[0]
 	}
 })
