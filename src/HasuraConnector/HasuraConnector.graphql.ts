@@ -22,6 +22,11 @@ export const hasuraGetPageQuery = `query ($id: uuid) {
       metadata
       sections
       slug
+      resources{
+        id
+        data
+        type
+      }
     }
   }`
 
