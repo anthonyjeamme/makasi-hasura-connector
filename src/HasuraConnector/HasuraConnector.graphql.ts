@@ -88,11 +88,9 @@ export const hasuraAddResourceQuery = `mutation ($data: resources_insert_input!)
       returning {
         id
         type
-        is_published
-        is_locked
-        metadata
-        sections
-        slug
+        data
+        created_at
+        updated_at
       }
     }
   }`
@@ -103,11 +101,9 @@ export const hasuraGetResourceQuery = `query ($id: uuid) {
   ){
     id
     type
-    is_published
-    is_locked
-    metadata
-    sections
-    slug
+    data
+    created_at
+    updated_at
   }
 }`
 
@@ -119,11 +115,9 @@ export const hasuraUpdateResourceQuery = `mutation (
       returning {
         id
         type
-        is_published
-        is_locked
-        metadata
-        sections
-        slug
+        data
+        created_at
+        updated_at
       }
     }
   }`
@@ -132,9 +126,9 @@ export const hasuraRemoveResourceQuery = `mutation (
   $id: uuid
   ){
       delete_resources(where: {id: {_eq: $id}}) {
-      returning {
-        id
-      }
+        returning {
+          id
+        }
     }
   }`
 
