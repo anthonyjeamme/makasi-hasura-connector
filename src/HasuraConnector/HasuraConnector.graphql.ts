@@ -82,3 +82,66 @@ export const hasuraUpdatePageQuery = `mutation (
         }
       }
     }`
+
+export const hasuraAddResourceQuery = `mutation ($data: resources_insert_input!) {
+  insert_resources(objects: [$data]) {
+      returning {
+        id
+        type
+        is_published
+        is_locked
+        metadata
+        sections
+        slug
+      }
+    }
+  }`
+
+export const hasuraGetResourceQuery = `query ($id: uuid) {
+  resources(
+      where: {id: {_eq: $id}}
+  ){
+    id
+    type
+    is_published
+    is_locked
+    metadata
+    sections
+    slug
+  }
+}`
+
+export const hasuraUpdateResourceQuery = `mutation (
+  $set_input: resources_set_input,
+  $id: uuid
+  ){
+    update_resources(_set: $set_input, where: {id: {_eq: $id}}) {
+      returning {
+        id
+        type
+        is_published
+        is_locked
+        metadata
+        sections
+        slug
+      }
+    }
+  }`
+
+export const hasuraRemoveResourceQuery = `mutation (
+  $id: uuid
+  ){
+      delete_resources(where: {id: {_eq: $id}}) {
+      returning {
+        id
+      }
+    }
+  }`
+
+export const hasuraAddResourceToPageQuery = `mutation ($data: page_resource_insert_input!) {
+  insert_page_resource(objects: [$data]) {
+      returning {
+        id
+      }
+    }
+  }`
