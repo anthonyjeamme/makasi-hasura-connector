@@ -196,8 +196,10 @@ export const hasuraConnector = (
 	//
 	addResourceToPage: async (resourceId, pageId) => {
 		const variables = {
-			resourceId,
-			pageId
+			data: {
+				resourceId,
+				pageId
+			}
 		}
 
 		return (
