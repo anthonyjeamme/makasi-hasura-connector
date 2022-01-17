@@ -1,6 +1,6 @@
 {
 	"name": "makasi-hasura-connector",
-	"version": "0.0.17",
+	"version": "0.0.18",
 	"description": "Hasura connector for Makasi",
 	"main": "dist/index.js",
 	"types": "dist/index.d.js",
